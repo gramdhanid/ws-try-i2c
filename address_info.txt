@@ -1,0 +1,4 @@
+ota_data_initial.bin : 0x11000
+bootloader.bin : $(CONFIG_BOOTLOADER_STORE_OFFSET)
+ST_samjin_wallswitch.bin : 0x14000
+partition.bin : 0x8000

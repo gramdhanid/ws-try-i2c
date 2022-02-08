@@ -1,0 +1,1 @@
+v1.7.0-47-g588c7cd-dirty ST_samjin_wallswitch v3.4-6-gd8c7f003-dirty

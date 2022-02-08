@@ -1,0 +1,19 @@
+{
+  "onboardingConfig": {
+    "deviceOnboardingId": "Wall Switch -",
+    "mnId": "0A9O",
+    "setupId": "002",
+    "vid": "ST_cec6a21c-5e90-4f5b-8bf8-4696cc0aff3e",
+    "deviceTypeId": "Switch",
+    "ownershipValidationTypes": [
+      "BUTTON"
+    ],
+    "identityType": "ED25519",
+    "deviceIntegrationProfileKey": {
+      "id": "cd7574da-89d8-44a2-81ef-9d60b2c950f4",
+      "majorVersion": 0,
+      "minorVersion": 1
+    },
+    "productId": "58844aff-ba47-4d53-ba10-2255073255e8"
+  }
+}
