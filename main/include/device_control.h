@@ -48,7 +48,7 @@
 #define GPIO_OUTPUT_MAINLED 2
 #define GPIO_OUTPUT_MAINLED_0 0 /* use as ground */
 
-#define GPIO_OUTPUT_RELAY 12 //tengah
+#define GPIO_OUTPUT_RELAY 5 //tengah
 // #define GPIO_OUTPUT_RELAY3 4 //kanan
 // #define GPIO_OUTPUT_RELAY 12, 4 //kanan
 #define GPIO_OUTPUT_NOUSE2 4 //terakhir_aktif_relay_3 samping dkt esp
