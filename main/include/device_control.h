@@ -20,34 +20,40 @@
 //#define CONFIG_TARGET_ESP8266_DEVKITC_V1
 #if defined(CONFIG_TARGET_WITTY_CLOUD)
 
-#define GPIO_INPUT_BUTTON 4
+// #define GPIO_INPUT_BUTTON 4
 
-#define GPIO_OUTPUT_MAINLED 15
-#define GPIO_OUTPUT_MAINLED_0 16 /* use as ground */
+// #define GPIO_OUTPUT_MAINLED 15
+// #define GPIO_OUTPUT_MAINLED_0 16 /* use as ground */
 
-#define GPIO_OUTPUT_NOUSE1 12
-#define GPIO_OUTPUT_NOUSE2 13
+// #define GPIO_OUTPUT_NOUSE1 12
+// #define GPIO_OUTPUT_NOUSE2 13
 
 #elif defined(CONFIG_TARGET_ESP8266_DEVKITC_V1)
 
-#define GPIO_INPUT_BUTTON 0
+// #define GPIO_INPUT_BUTTON 0
 
-#define GPIO_OUTPUT_MAINLED 14
-#define GPIO_OUTPUT_MAINLED_0 15 /* use as ground */
+// #define GPIO_OUTPUT_MAINLED 14
+// #define GPIO_OUTPUT_MAINLED_0 15 /* use as ground */
 
-#define GPIO_OUTPUT_NOUSE1 12
-#define GPIO_OUTPUT_NOUSE2 13
+// #define GPIO_OUTPUT_NOUSE1 12
+// #define GPIO_OUTPUT_NOUSE2 13
 
 #else //default
 
 // #define GPIO_OUTPUT_NOTIFICATION_LED 2
-#define GPIO_INPUT_BUTTON 14
+#define GPIO_INPUT_BUTTON 15 //tengah
+// #define GPIO_INPUT_BUTTON3 5 //kanan
+// #define GPIO_INPUT_BUTTON 15, 5 //kanan
 
 #define GPIO_OUTPUT_MAINLED 2
 #define GPIO_OUTPUT_MAINLED_0 0 /* use as ground */
 
-#define GPIO_OUTPUT_RELAY 12
-#define GPIO_OUTPUT_NOUSE2 4
+#define GPIO_OUTPUT_RELAY 12 //tengah
+// #define GPIO_OUTPUT_RELAY3 4 //kanan
+// #define GPIO_OUTPUT_RELAY 12, 4 //kanan
+#define GPIO_OUTPUT_NOUSE2 4 //terakhir_aktif_relay_3 samping dkt esp
+// #define GPIO_OUTPUT_RELAY 3
+// #define GPIO_OUTPUT_NOUSE2 3 
 
 #endif
 

@@ -28,8 +28,12 @@ void change_switch_state(int switch_state)
 {
     if (switch_state == SWITCH_OFF) {
         gpio_set_level(GPIO_OUTPUT_RELAY, RELAY_GPIO_OFF);
+        // gpio_set_level(GPIO_OUTPUT_RELAY2, RELAY_GPIO_OFF);
+        // gpio_set_level(GPIO_OUTPUT_RELAY3, RELAY_GPIO_OFF);
     } else {
         gpio_set_level(GPIO_OUTPUT_RELAY, RELAY_GPIO_ON);
+        // gpio_set_level(GPIO_OUTPUT_RELAY2, RELAY_GPIO_ON);
+        // gpio_set_level(GPIO_OUTPUT_RELAY3, RELAY_GPIO_ON);
     }
 }
 
@@ -52,10 +56,14 @@ int get_button_event(int* button_event_type, int* button_event_count)
 
     uint32_t gpio_level = 0;
 
+    // gpio_level = gpio_get_level(GPIO_INPUT_BUTTON2);
+    // gpio_level = gpio_get_level(GPIO_INPUT_BUTTON3);
     gpio_level = gpio_get_level(GPIO_INPUT_BUTTON);
     if (button_last_state != gpio_level) {
         /* wait debounce time to ignore small ripple of currunt */
         vTaskDelay( pdMS_TO_TICKS(BUTTON_DEBOUNCE_TIME_MS) );
+        // gpio_level = gpio_get_level(GPIO_INPUT_BUTTON2);
+        // gpio_level = gpio_get_level(GPIO_INPUT_BUTTON3);
         gpio_level = gpio_get_level(GPIO_INPUT_BUTTON);
         if (button_last_state != gpio_level) {
             printf("Button event, val: %d, tick: %u\n", gpio_level, (uint32_t)xTaskGetTickCount());
@@ -144,7 +152,9 @@ void iot_gpio_init(void)
 
     io_conf.intr_type = GPIO_INTR_ANYEDGE;
 	io_conf.mode = GPIO_MODE_INPUT;
-	io_conf.pin_bit_mask = (1ULL << GPIO_INPUT_BUTTON);
+    io_conf.pin_bit_mask = (1ULL << GPIO_INPUT_BUTTON);
+	// io_conf.pin_bit_mask = (1ULL << GPIO_INPUT_BUTTON2);
+    // io_conf.pin_bit_mask = (1ULL << GPIO_INPUT_BUTTON3);
 	io_conf.pull_down_en = 0x1;
 	io_conf.pull_up_en = 0x0;
 	gpio_config(&io_conf);
@@ -160,14 +170,18 @@ void iot_gpio_init(void)
 
 	io_conf.intr_type = GPIO_INTR_DISABLE;
 	io_conf.mode = GPIO_MODE_OUTPUT;
-	io_conf.pin_bit_mask = 1 << GPIO_OUTPUT_RELAY;
+    io_conf.pin_bit_mask = 1 << GPIO_OUTPUT_RELAY;
+	// io_conf.pin_bit_mask = 1 << GPIO_OUTPUT_RELAY2;
+    // io_conf.pin_bit_mask = 1 << GPIO_OUTPUT_RELAY3;
 	io_conf.pull_down_en = 0;
 	io_conf.pull_up_en = 0;
 	gpio_config(&io_conf);
 	io_conf.pin_bit_mask = 1 << GPIO_OUTPUT_NOUSE2;
 	gpio_config(&io_conf);
 
-	gpio_set_intr_type(GPIO_INPUT_BUTTON, GPIO_INTR_ANYEDGE);
+	// gpio_set_intr_type(GPIO_INPUT_BUTTON2, GPIO_INTR_ANYEDGE);
+    // gpio_set_intr_type(GPIO_INPUT_BUTTON3, GPIO_INTR_ANYEDGE);
+    gpio_set_intr_type(GPIO_INPUT_BUTTON, GPIO_INTR_ANYEDGE);
 
 	gpio_install_isr_service(0);
 
